@@ -11,6 +11,9 @@ Raspberry Pi hardware interface.
 
 ## Configuration
 
+First, enable the `https://github.com/samueltardieu/homeassistant-addons` repository in
+the "Addons" configuration section of Home Assistant.
+
 After enabling this add-on and configuring it
 to automatically start, one can use the following in HomeAssistant `configuration.yaml`:
 
@@ -32,5 +35,15 @@ The icon is part of [iconscount display icon](https://iconscout.com/icon/display
 
 ## RPI GPU Memory
 
-The libraries that pycec uses require there be 128M of memory allocatd to the GPU - if you see any
-strange assertions in the logs, use `raspi-config` to change that value.
+The libraries that pycec uses require there be 128M of memory allocated to the GPU.
+If you see any strange assertions in the logs, use `raspi-config` to change that value.
+
+## The loop argument is deprecated
+
+If you see messages such as
+
+```
+Apr 6 23:06:53 s140n-hass 37dcc20d3026[1330]: /usr/local/lib/python3.8/site-packages/pycec/network.py:431: DeprecationWarning: The loop argument is deprecated since Python 3.8, and scheduled for removal in Python 3.10.
+```
+
+know that this is due to [pyCEC](https://github.com/konikvranik/pyCEC/issues/68).
